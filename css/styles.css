@@ -1,0 +1,590 @@
+/*
+黒:rgba(30, 45, 40, 1.0)
+赤:rgba(230, 75, 35, 1.0)
+白:rgba(240, 245, 240, 1.0)
+*/
+
+
+/* 共通設定 */
+
+	*{
+		box-sizing: border-box;
+	}
+
+	body{
+		margin: 0rem;
+		padding: 0rem;
+		color: rgba(30, 45, 40, 1.0);
+		background-color: rgba(240, 245, 240, 1.0);
+		font-family:'ヒラギノ角ゴシック';
+	}
+
+	.clear{
+		clear: both;
+	}
+
+
+	.container{
+		width:1030px;
+		margin: 0 auto;
+		padding: 0 15px;
+		/* 注意 */
+		overflow: auto;
+	}
+
+
+	li{
+		list-style: none;
+	}
+
+	dl {
+		margin-block-start: 0px;
+		margin-block-end: 0px;
+		margin-inline-start: 0px;
+		margin-inline-end: 0px;
+	}
+
+
+
+
+	/* nav */
+	/* スライドメニュー */
+
+	.registration-nav{
+		position: fixed;
+		z-index: 10;
+		width: 800px;
+		height: 100%;
+		top: 0;
+		left: -700px;
+		transition: left 0.8s;
+	}
+
+	.nav-open{
+		left: 0px;
+		transition: left 0.8s;
+	}
+
+
+	#nav-container{
+		float: left;
+		width: 700px;
+		height: inherit;
+		padding-top: 80px;
+		padding-left: 120px;
+		padding-right: 100px;
+		margin: 0 auto;
+		background-color: white;
+	}
+
+	#nav-handle{
+		float: left;
+		width: 100px;
+		height: inherit;
+		background-color: rgba(0, 0, 0, 0);
+		text-align: center;
+	}
+
+	#nav-button{
+		display: inline-block;
+		margin-top: 500px;
+		cursor: pointer;
+
+		/* 縦書き */
+			/* Chrome,Safari */
+			-webkit-writing-mode: vertical-rl;
+			/* Internet Explorer, Edge */
+			-ms-writing-mode: tb-rl;
+			/* firefox */
+			-moz-writing-mode: vertical-rl;
+			/* ベンダープレフィックス無し */
+			writing-mode: vertical-rl;
+
+			text-orientation: upright;
+		
+		font-size: 1.2rem;
+		font-weight: 200;
+		color: rgba(230, 75, 35, 1.0);
+	}
+
+	#nav-button span{
+		font-weight: 200;
+	}
+
+	#nav-button::after{
+		content: "トピックの設定";
+	}
+
+
+	/* input-form */
+	/* トピック記入欄 */
+
+		#input-form{
+			margin-bottom: 70px;
+		}
+
+		#input-form p{
+			font-size: 0.9rem;
+			color: rgba(30, 45, 40, 1.0);
+			cursor: default;
+		}
+
+		#group-input{
+			width: 12rem;
+			font-family:serif;
+			font-size: 1.2rem;
+			font-weight: 300;
+			text-align: left;
+			cursor: text;
+			/* color: rgba(30, 45, 40, 1.0); */
+			color: rgba(230, 75, 35, 1.0);
+			background-color: rgba(255, 255, 255, 0);
+			padding: 0.2rem 0.5rem 0.0rem;
+			border-top-style: none;
+			border-left-style: none;
+			border-right-style: none;
+			border-bottom-style: solid;
+			border-bottom-color: rgba(230, 75, 35, 1.0);
+			border-bottom-width: 1.6px;
+		}
+
+		#group-input::placeholder{
+			color: rgba(230, 75, 35, 0.6);
+			font-family: serif;
+			font-weight: thin;
+		}
+
+		#group-input:focus{
+			outline: 0;
+		}
+
+
+		#group-registration{
+			width: 5rem;
+			font-family:'ヒラギノ角ゴシック';
+			font-size: 1.0rem;
+			font-weight: 100;
+			text-align: center;
+			cursor: default;
+			color: rgba(130, 130, 130, 1.0);
+			background-color: rgba(0, 0, 0, 0);
+			padding: 0.2rem 0.5rem;
+			margin-left: 2rem;
+			border-style: solid;
+			border-color: rgba(150, 150, 150, 1.0);
+			border-width: 1.6px;
+		}
+
+
+		.input-active{
+			font-weight: 200 !important;
+			cursor: pointer !important;
+			color: rgba(240, 245, 240, 1.0) !important;
+			background-color: rgba(230, 75, 35, 1.0) !important;
+			border-style: solid;
+			border-color: rgba(150, 150, 150, 0.0) !important;
+			border-width: 1.6px;
+		}
+
+
+		.input-active:hover{
+			opacity: 0.5;
+		}
+
+	/* groups */
+	/* トピック一覧 */
+
+		#groups{
+			margin-top: 50px;
+			margin-bottom: 60px;
+		}
+
+		#groups p{
+			font-size: 0.9rem;
+			color: rgba(30, 45, 40, 1.0);
+		}
+
+		#group-selection{
+			width: 100%;
+			font-family:serif;
+			font-size: 1.2rem;
+			font-weight: 400;
+			text-align: left;
+			cursor: pointer;
+			color: rgba(80, 80, 80, 1.0);
+			background-color: rgba(255, 255, 255, 0);
+			padding: 0.5rem 0.5rem 0.5rem;
+			border-top-style: none;
+			border-left-style: none;
+			border-right-style: none;
+			border-bottom-style: solid;
+			border-bottom-color: rgba(230, 75, 35, 1.0);
+			border-bottom-width: 1.6px;
+		}
+		
+		#group-selection:focus{
+			outline: 0;
+		}
+		
+		#group-delete{
+			display: block;
+			float: right;
+			width: 10rem;
+			font-family:'ヒラギノ角ゴシック';
+			font-size: 1.0rem;
+			font-weight: 200;
+			text-align: center;
+			cursor: pointer;
+			color: rgba(240, 245, 240, 1.0);
+			padding: 0.2rem 0.5rem;
+			margin-top: 1.0rem;
+			background-color: rgba(230, 75, 35, 1.0);
+			border-style: solid;
+			border-color: rgba(150, 150, 150, 0.0);
+			border-width: 1.6px;
+		}
+
+
+		#group-delete:hover{
+			opacity: 0.5;
+		}
+
+	/* books */
+	/* 書籍一覧 */
+
+		#books{
+			margin-top: 50px;
+			width: 30rem;
+		}
+
+
+		#book-selection{
+			width: 30rem;
+			height: 35rem;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			margin-bottom: 45px;
+			overflow: scroll;
+		}
+
+		#book-lists{
+			width: inherit;
+			padding-left: 20px;
+			padding-right: 20px;
+			border-left-style: solid;
+			border-left-color: rgba(30, 45, 40, 1.0);
+			border-left-width: 1.6px;
+			cursor: pointer;
+		}
+
+		#book-lists li{
+			width: 22rem;
+			font-size: 1.2rem;
+			font-family: serif;
+			font-weight: Thin;
+			padding: 0px 10px;
+			margin-bottom: 16px;
+			color: rgba(80, 80, 80,1.0);
+		}
+
+		#book-lists li span{
+			display: inline-block;
+			border-bottom-style: solid;
+			border-bottom-color: rgba(30, 45, 40, 0.0);
+			border-bottom-width: 2.5px;
+		}
+
+		#book-lists li:hover{
+			opacity: 0.3;
+		}
+
+
+		.grouped-books{
+			background-color: rgba(30, 45, 40, 1.0);
+			font-size: 1.2rem !important;
+			color: rgba(240, 245, 240, 1.0) !important;
+			font-weight: bold !important;
+		}
+
+		.focused-book-i{
+			width: 25rem;
+			margin-left: 3rem; 
+		}
+
+		.focused-book-o span{
+			border-bottom-color: rgba(30, 45, 40, 1.0) !important;
+		}
+
+		.focused-book-o span::before{
+			content: "＊    ";
+		}
+
+
+		#book-btn{
+			width: 480px;
+			font-size: 1.0rem;
+			font-weight: 100;
+			text-align: center;
+			cursor: default;
+			color: rgba(130, 130, 130, 1.0);
+			padding: 0.2rem 0.5rem;
+			border-style: solid;
+			border-color: rgba(150, 150, 150, 1.0);
+			border-width: 1.6px;
+		}
+
+		.add-and-remove{
+			cursor: pointer !important;
+			font-weight: 200 !important;
+			color: rgba(240, 245, 240, 1.0) !important;
+			background-color: rgb(230, 75, 35);
+			border-color: rgba(150, 150, 150, 0.0) !important;
+		}
+
+
+		.add-and-remove span{
+			display: inline-block;
+			padding-left: 0.5rem;
+			font-weight: 500 !important;
+		}
+
+		.add-and-remove:hover{
+			opacity: 0.5;
+		}
+
+
+/* first-wrapper */
+
+	.first-wrapper{
+		color:rgba(30, 45, 40, 1.0);
+		font-family:'ヒラギノ角ゴシック';
+	}
+
+	.heading{
+		padding-top: 180px;
+	}
+
+	.image-frame{
+		display: inline-block;
+		padding: 30px;
+		background-color: white;
+	}
+
+	.first-wrapper img{
+		width: 800px;
+		/* imgのbottomの隙間を失くす */
+		/* (デフォルトの設定vertical-align: baseline;を無効化) */
+		vertical-align: top;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+
+
+
+	/* theme */
+
+		.theme{
+			position: relative;
+			top: -2.2rem;
+			text-align: right;
+			margin-top:0rem;
+			margin-bottom:0rem;
+		}
+
+		.borders{
+			position: relative;
+			top: -2.8rem;
+			float: right;
+		}
+
+		.border{
+			height: 4px;
+			width: 600px;
+			border-bottom-style: solid;
+			border-bottom-width: 2.0px;
+			border-bottom-color: rgba(230, 75, 35, 1.0);
+		}
+
+		.theme .one-letter{
+			display: inline-block;
+			font-size:5rem;
+			line-height: 5rem;
+			margin-right: 0.6rem;
+			cursor: default;
+			opacity: 1.0;
+			transition:opacity 2.0s ease-in-out 0.5s;
+		}
+
+		.theme-disappear{
+			opacity: 0.0 !important;
+			transition:opacity 0.1s ease-in-out !important;
+		}
+
+
+
+
+
+	/* topics */
+		.topics{
+			margin-top: 8rem;
+			font-size: 1.5rem;
+		}
+
+		.topics p{
+			float: left;
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-right: 2rem;
+			font-weight: 400;
+		}
+
+		.topics #group-list{
+			float: left;
+			margin-top: 0;
+			margin-bottom: 0;
+			padding-left: 1rem;
+			border-left-style: solid;
+			border-left-color: rgba(30, 45, 40, 1.0);
+			border-left-width: 1.6px;
+		}
+
+		#group-list li{
+			cursor: pointer;
+			margin-bottom: 0.7rem;
+			border-bottom-style: solid;
+			border-bottom-color: rgba(30, 45, 40, 0.0);
+			border-bottom-width: 2.5px;
+		}
+
+		#group-list li:hover{
+			opacity: 0.5;
+		}
+
+		.book-group-list{
+			font-weight: 100;
+		}
+
+
+		.grouping{
+			font-weight: 200;
+			border-bottom-color: rgba(30, 45, 40, 1.0) !important;
+		}
+
+		.grouping::before{
+			content: "＊    ";
+		}
+
+
+		.group-color{
+			color: rgb(230, 75, 35);
+		}
+
+
+
+/* second-wrapper */
+
+	.second-wrapper{
+		font-family: serif;
+		margin-top: 200px;
+	}
+
+	.second-wrapper .container{
+		overflow: scroll;
+	}
+
+	.card{
+		display: grid;
+		grid-template-columns: 5rem 0rem;
+		grid-template-rows: auto;
+		float: left;
+	}
+
+	.card-clear{
+		clear: both;
+	}
+
+
+	.margin-box{
+		width: 5px;
+		height: 100px;
+		float: left;
+	}
+
+	.prev-margin-box{
+		height: 5px !important;
+	}
+
+
+	.sub-title{
+		display: none;
+	}
+
+
+
+	.open-card{
+		margin-top:50px !important;
+		margin-bottom:50px !important;
+	}
+
+	.box01{
+		text-align: center;
+		color: rgba(30, 45, 40, 1.0);
+	}
+
+	.vertical{
+		/* 縦書き */
+			/* Chrome,Safari */
+			-webkit-writing-mode: vertical-rl;
+			/* Edge */
+			-ms-writing-mode: tb-rl;
+			/* firefox */
+			-moz-writing-mode: vertical-rl;
+			/* ベンダープレフィックス無し */
+			writing-mode: vertical-rl;
+
+			text-orientation: upright;
+		
+		text-align: left;
+		display: inline-block;
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+		cursor: pointer;
+		transition: opacity 0.2s;
+	}
+
+	.vertical :hover{
+		opacity: 0.5;
+		transition:0.2s;
+	}
+
+
+	.title{
+		float: left;
+		font-weight: bold;
+		font-size: 1.5rem;
+	}
+
+	.sub-title{
+		float: left;
+		font-weight: lighter;
+		font-size: 1.2rem;
+		position: relative;
+		left: -0.25rem;
+	}
+
+
+
+	.horizontal{
+		color: rgba(95, 105, 100, 1.0);
+		background-color: #d4d9d6;
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+		width: 0%;
+		height: 100%;
+	}
+
+	.horizontal *{
+		/* ハマったポイント */
+		overflow: hidden;
+		white-space: nowrap
+	}

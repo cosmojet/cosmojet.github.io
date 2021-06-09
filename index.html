@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>町の図書便り</title>
+	<link rel="stylesheet" href="./css/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+
+
+
+<body>
+
+<!-- スライドメニュー -->
+
+<nav class="registration-nav">
+
+	<div id="nav-container">
+
+		<!-- トピック記入欄 -->
+		<div id="input-form">
+			<p>新しいトピックを登録</p>
+			<input type="text" id="group-input" placeholder="新規トピック名" >
+			<input type="button" id="group-registration" onclick="groupInput()" value="登録">
+		</div>
+		
+
+		<!-- トピック一覧 -->
+		<div id="groups">
+			<p>選択しているトピック</p>
+			<select name="group-selection" id="group-selection">
+				<!-- <option value="book-group1" id="book-group1" class="book-group"></option> -->
+				<option value="book-group1" id="book-group1" class="book-group-option">夏のアートブック特集</option>
+				<option value="book-group2" id="book-group2" class="book-group-option">本屋さんの気になるトピック：人間の歴史</option>
+				<option value="book-group3" id="book-group3" class="book-group-option">大人が選ぶ！おもしろい漫画</option>
+				<option value="book-group4" id="book-group4" class="book-group-option">ランドスケープってなに？</option>
+				<option value="book-group5" id="book-group5" class="book-group-option">名著探検隊vol.1  フランツ・カフカの世界</option>
+			</select>
+			<input type="button" id="group-delete" onclick="deleteInput()" value="トピックを削除">
+			<div class="clear"></div>
+		</div>
+		
+
+		<!-- 書籍一覧 -->
+		<div id="books">
+	
+			<div id="book-selection">
+				<ul id="book-lists"></ul>
+			</div>
+			
+			<div id="book-btn">本を選択してください</div>
+			<!-- <input type="button" value="本を選択してください"> -->
+		</div>
+
+	</div>
+
+	<div id="nav-handle">
+		<div id="nav-button"><span>↑</span></div>
+	</div>
+	
+	<div class="clear"></div>
+
+</nav>
+
+
+<!-- fist-wrapper -->
+<div class="first-wrapper">
+	<div class="container">
+		<div class="heading">
+			<div class="image-frame">
+				<img src="./image/bk01.png">
+			</div>
+			<h1 class="theme">
+				<span class="every-letters">
+					<span class="one-letter">町</span>
+					<span class="one-letter">の</span>
+					<span class="one-letter">図</span>
+					<span class="one-letter">書</span>
+					<span class="one-letter">便</span>
+					<span class="one-letter">り</span>
+				</span>
+			</h1>
+
+			<div class="borders">
+				<div class="border"></div>
+				<div class="border"></div>
+			</div>
+			<div class="clear"></div>
+			
+		</div>
+
+		<div class="topics">
+
+			<p>トピック一覧</p>
+			<ul id="group-list">
+				<li class="book-group-list" data-list="book-group1">夏のアートブック特集</li>
+				<li class="book-group-list" data-list="book-group2">本屋さんの気になるトピック：人間の歴史</li>
+				<li class="book-group-list" data-list="book-group3">大人が選ぶ！おもしろい漫画</li>
+				<li class="book-group-list" data-list="book-group4">ランドスケープってなに？</li>
+				<li class="book-group-list" data-list="book-group5">名著探検隊vol.1  フランツ・カフカの世界</li>
+			</ul>
+
+			<div class="clear"></div>
+			
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+<!-- second-wrapper -->
+<div class="second-wrapper">
+	<div class="container">
+
+
+		<div class="book">
+			
+
+			<div class="margin-box" id="first-margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group2 book-group3" id="978-4309293011">
+
+					<div class="box01">
+						<div class="vertical">
+							<dt class="title">漫画 サピエンス全史</dt>
+							<dt class="sub-title">人類の誕生編</dt>
+							<div class="clear"></div>
+						</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								原案・脚本　ユヴァル・ノア・ハラリ<br>
+								脚本　ダヴィッド・ヴァンデルムーレン<br>
+								漫画　ダニエル・カザナヴ<br>
+								訳者　安原和見
+							</dd>
+							<dd class="publisher">河出書房新社</dd>
+							<dd class="year">2020年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group1" id="978-4087806045">
+
+					<div class="box01">
+						<div class="vertical">
+							<dt class="sub-title">彫刻家・舟越桂の創作メモ</dt>
+							<dt class="title">個人はみな絶滅危惧種という存在</dt>
+							<div class="clear"></div>
+						</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　舟越桂
+							</dd>
+							<dd class="publisher">集英社</dd>
+							<dd class="year">2011年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group3" id="978-4904184530">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">ものみな過去にありて</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　いがらしみきお<br>
+								編集者　クマガイコウキ
+							</dd>
+							<dd class="publisher">一般社団法人メディアデザイン</dd>
+							<dd class="year">2012年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group2" id="978-4862760487">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">ソングライン</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　ブルース・チャトウィン<br>
+								訳者　北田絵里子<br>
+								解説　石川直樹
+							</dd>
+							<dd class="publisher">英治出版</dd>
+							<dd class="year">2009年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group2" id="978-4480081568">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">人間の条件</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　ハンナ・アレント<br>
+								訳者　志水速雄
+							</dd>
+							<dd class="publisher">筑摩書房</dd>
+							<dd class="year">1994年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group3" id="978-4091885555">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">I【アイ】</dt>
+								<dt class="sub-title">第１集</dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　いがらしみきお
+							</dd>
+							<dd class="publisher">小学館</dd>
+							<dd class="year">2011年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<!-- <div class="clear-before"></div>
+			<dl class="card book-group3" id="978-4091885869">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">I【アイ】</dt>
+								<dt class="sub-title">第２集</dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　いがらしみきお
+							</dd>
+							<dd class="publisher">小学館</dd>
+							<dd class="year">2012年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div> -->
+
+
+			<!-- <div class="margin-box"></div> -->
+
+
+			<!-- <div class="clear-before"></div>
+			<dl class="card book-group3" id="978-4091886316">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">I【アイ】</dt>
+								<dt class="sub-title">第３集</dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　いがらしみきお
+							</dd>
+							<dd class="publisher">小学館</dd>
+							<dd class="year">2013年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div> -->
+
+
+			<!-- <div class="margin-box"></div> -->
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group4" id="978-4864800389">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">思考としてのランドスケープ　地上学への誘い</dt>
+								<dt class="sub-title">歩くこと、見つけること、育てること</dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　石川初
+							</dd>
+							<dd class="publisher">LIXIL出版</dd>
+							<dd class="year">2018年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group4" id="978-4306072817">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">ランドスケープの近代</dt>
+								<dt class="sub-title">建築・庭園・都市をつなぐデザイン思考</dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　佐々木葉二、三谷徹、宮城俊作、登坂誠
+							</dd>
+							<dd class="publisher">鹿島出版会</dd>
+							<dd class="year">2010年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group2" id="978-4309464138">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">イデオロギーの崇高な対象</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　スラヴォイ・ジジェク<br>
+								訳者　鈴木晶
+							</dd>
+							<dd class="publisher">河出書房新社</dd>
+							<dd class="year">2015年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card" id="978-4791753758">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">斜めから見る　大衆文化を通してラカン理解へ</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　スラヴォイ・ジジェク<br>
+								訳者　鈴木晶
+							</dd>
+							<dd class="publisher">青土社</dd>
+							<dd class="year">1995年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group4" id="978-4582768251">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">園芸家の一年</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　カレル・チャペック<br>
+								訳者　飯島周
+							</dd>
+							<dd class="publisher">平凡社</dd>
+							<dd class="year">2015年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group1" id="978-4560071229">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">中二階</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　ニコルソン・ベイカー<br>
+								訳者　岸本佐知子
+							</dd>
+							<dd class="publisher">白水社</dd>
+							<dd class="year">1997年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group1" id="978-4480098542">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">フランシス・ベイコン・インタヴュー</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　デイヴィッド・シルヴェスター<br>
+								訳者　小林等
+							</dd>
+							<dd class="publisher">筑摩書房</dd>
+							<dd class="year">2018年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group1" id="978-4309247496">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">フランシス・ベーコン　感覚の論理学</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　ジル・ドゥルーズ<br>
+								訳者　宇野邦一
+							</dd>
+							<dd class="publisher">河出書房新社</dd>
+							<dd class="year">2016年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group5" id="978-4588010682">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">カフカ　マイナー文学のために</dt>
+								<dt class="sub-title">新訳</dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　ジル・ドゥルーズ／フェリックス・ガタリ<br>
+								訳者　宇野邦一
+							</dd>
+							<dd class="publisher">法政大学出版局</dd>
+							<dd class="year">2017年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group5" id="978-4042083023">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">審判</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition">第49版</dd>
+							<dd class="author">
+								著者　フランツ・カフカ<br>
+								訳者　本野享一
+							</dd>
+							<dd class="publisher">KADOKAWA</dd>
+							<dd class="year">2018年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group5" id="978-4560071533">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">失踪者</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　フランツ・カフカ<br>
+								訳者　池内紀
+							</dd>
+							<dd class="publisher">白水社</dd>
+							<dd class="year">2006年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group5" id="978-4102071021">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">城</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　フランツ・カフカ<br>
+								訳者　前田敬作
+							</dd>
+							<dd class="publisher">新潮社</dd>
+							<dd class="year">2005年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group5" id="978-4003243831">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">カフカ短篇集</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								編訳者　池内紀
+							</dd>
+							<dd class="publisher">岩波書店</dd>
+							<dd class="year">1987年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group5" id="978-4003243848">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">カフカ寓話集</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								編訳者　池内紀
+							</dd>
+							<dd class="publisher">岩波書店</dd>
+							<dd class="year">1998年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group5" id="978-4582761498">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">夢・アフォリズム・詩</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　フランツ・カフカ<br>
+								編訳者　吉田仙太郎
+							</dd>
+							<dd class="publisher">平凡社</dd>
+							<dd class="year">1996年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card" id="978-4062881777">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">わかりあえないことから</dt>
+								<dt class="sub-title">コミュニケーション能力とは何か</dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　平田オリザ
+							</dd>
+							<dd class="publisher">講談社</dd>
+							<dd class="year">2012年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card" id="978-4797672763">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">「サル化」する人間社会</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　山極寿一
+							</dd>
+							<dd class="publisher">集英社インターナショナル</dd>
+							<dd class="year">2014年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group1" id="978-4309279299">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">現代アートとは何か</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　小崎哲哉
+							</dd>
+							<dd class="publisher">河出書房新社</dd>
+							<dd class="year">2018年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group2" id="978-4750516103">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">歴史がおわるまえに</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　與那覇潤
+							</dd>
+							<dd class="publisher">亜紀書房</dd>
+							<dd class="year">2019年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card" id="978-4044006204">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">自閉症は津軽弁を話さない</dt>
+								<dt class="sub-title">自閉スペクトラム症のことばの謎を読み解く</dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　松本敏治
+							</dd>
+							<dd class="publisher">KADOKAWA</dd>
+							<dd class="year">2020年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card" id="978-4260036368">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">どもる体</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　伊藤亜紗
+							</dd>
+							<dd class="publisher">医学書院</dd>
+							<dd class="year">2018年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group1" id="978-4861525872">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">絵画の歴史</dt>
+								<dt class="sub-title">洞窟壁画からiPadまで</dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　デイヴィッド・ホックニー<br>
+								　　　マーティン・ゲイフォード<br>
+								翻訳　木下哲夫
+							</dd>
+							<dd class="publisher">青幻舎インターナショナル</dd>
+							<dd class="year">2017年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group1" id="978-4622049050">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">明るい部屋</dt>
+								<dt class="sub-title">写真についての覚書</dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　ロラン・バルト<br>
+								訳者　花輪光
+							</dd>
+							<dd class="publisher">みすず書房</dd>
+							<dd class="year">1997年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group1" id="978-4588008559">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">シネマ１＊運動イメージ</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　ジル・ドゥルーズ<br>
+								訳者　財津理／齋藤範
+							</dd>
+							<dd class="publisher">法政大学出版局</dd>
+							<dd class="year">2008年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group1" id="978-4336054104">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">アート・スピリット</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　ロバート・ヘンライ<br>
+								訳者　野中邦子
+							</dd>
+							<dd class="publisher">国書刊行会</dd>
+							<dd class="year">2011年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group1" id="978-4041100240">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">美しく怒れ</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition">第４版</dd>
+							<dd class="author">
+								著者　岡本太郎
+							</dd>
+							<dd class="publisher">KADOKAWA</dd>
+							<dd class="year">2014年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+			<div class="clear-before"></div>
+			<dl class="card book-group1 book-group4" id="978-4865410655">
+
+					<div class="box01">
+						<div class="vertical">
+								<dt class="title">まっぷたつの風景</dt>
+								<dt class="sub-title"></dt>
+								<div class="clear"></div>
+							</div>
+					</div>
+
+					<div class="box02">
+						<div class="horizontal">
+							<dd class="edition"></dd>
+							<dd class="author">
+								著者　畠山直哉
+							</dd>
+							<dd class="publisher">赤々舎</dd>
+							<dd class="year">2017年</dd>
+						</div>
+					</div>
+
+			</dl>
+			<div class="clear-after"></div>
+
+
+			<div class="margin-box"></div>
+
+
+		</div>
+			
+	</div>
+</div>
+
+
+
+
+
+<!-- javascript -->
+<script type="text/javascript" src="script_js.js"></script>
+<!-- jquery -->
+<script src="script_jq.js"></script>
+
+</body>
+</html>
